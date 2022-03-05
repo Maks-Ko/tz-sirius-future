@@ -1,0 +1,32 @@
+.footer {
+    margin: 0 auto;
+    min-width: 375px;
+    background: #FFFFFF;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    /* position: fixed;
+    bottom: 0; */
+}
+
+.footer__conatiner {
+    margin: 10px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__image {
+    width: 24px;
+    height: 24px;
+}
+
+.footer__text {
+    margin: 0;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #94949D;
+}
