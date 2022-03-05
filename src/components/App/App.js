@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Main from '../Main/Main';
 import './App.css';
 
@@ -7,10 +7,18 @@ import './App.css';
 function App() {
   return (
     <div className='app'>
-      <Route path='/'>
-        <Main
-          title='Все изображения' />
-      </Route>
+      <Switch>
+        <Route exact path='/'>
+          <Main
+            title='Все изображения'
+            isFavorite={false} />
+        </Route>
+        <Route path='/favorite'>
+          <Main
+            title='Избранное'
+            isFavorite={true} />
+        </Route>
+      </Switch>
     </div>
   );
 }

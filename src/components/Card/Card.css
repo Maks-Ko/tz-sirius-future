@@ -3,6 +3,13 @@
     background: #C4C4C4;
     border-radius: 10px;
     height: 81px;
+    position: relative;
+}
+
+.card__favorite {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
 }
 
 .card__image {

@@ -8,7 +8,8 @@ function Main(props) {
         <>
             <Header
                 title={props.title} />
-            <CardList />
+            <CardList
+                isFavorite={props.isFavorite} />
             <Footer />
         </>
     );
