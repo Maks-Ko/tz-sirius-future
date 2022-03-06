@@ -6,7 +6,7 @@ import './Header.css';
 function Header(props) {
     return(
         <header className='header'>
-            <img className='header__image' src={arrowBack} alt='стрелка назад' />
+            <img className={`header__image ${props.navigation}`} src={arrowBack} alt='стрелка назад' />
             <h1 className='header__title'>{props.title}</h1>
         </header>
     );
