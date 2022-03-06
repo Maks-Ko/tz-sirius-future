@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import gallery from '../../images/home.svg';
 import star from '../../images/star.svg';
 import './Footer.css';
@@ -6,14 +7,14 @@ import './Footer.css';
 function Footer() {
     return (
         <footer className="footer">
-            <div className="footer__conatiner">
+            <NavLink exact to='/' activeClassName="footer__conatiner_activ" className="footer__conatiner">
                 <img className="footer__image" src={gallery} alt="галерея" />
                 <p className="footer__text">Галерея</p>
-            </div>
-            <div className="footer__conatiner">
+            </NavLink>
+            <NavLink to='/favorite' activeClassName="footer__conatiner_activ" className="footer__conatiner">
                 <img className="footer__image" src={star} alt="избранное" />
                 <p className="footer__text">Избранное</p>
-            </div>
+            </NavLink>
         </footer>
     );
 }

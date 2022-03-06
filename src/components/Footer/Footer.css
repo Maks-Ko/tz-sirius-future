@@ -11,10 +11,16 @@
 }
 
 .footer__conatiner {
+    text-decoration: none;
     margin: 10px 25px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
+    color: #94949D;
+}
+
+.footer__conatiner_activ {
+    color: #A10D99;
 }
 
 .footer__image {
@@ -29,5 +35,4 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
-    color: #94949D;
 }

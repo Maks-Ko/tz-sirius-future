@@ -19,7 +19,7 @@ function App() {
             title='Избранное'
             isFavorite={true} />
         </Route>
-        <Route path='/img'>
+        <Route path='/:id'>
           <Image
             title='Назвние фото'
             isFavoriteButton={false}
