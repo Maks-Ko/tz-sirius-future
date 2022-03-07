@@ -11,7 +11,8 @@ function Main(props) {
             <CardList
                 isFavorite={props.isFavorite}
                 cards={props.cards}
-                onCardShow={props.onCardShow} />
+                onCardShow={props.onCardShow}
+                cardsFavorite={props.cardsFavorite} />
             <Footer />
         </>
     );

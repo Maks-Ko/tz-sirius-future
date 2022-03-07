@@ -9,7 +9,6 @@ function App() {
   const [cards, setCards] = useState([]);
   const [cardsFavorite, setCardsFavorite] = useState([]);
   const [card, setCard] = useState('');
-  const [cardFavorite, setCardFavorite] = useState('');
   const history = useHistory();
 
   useEffect(() => {
@@ -62,6 +61,7 @@ function App() {
             title='Все изображения'
             isFavorite={false}
             cards={cards}
+            cardsFavorite={cardsFavorite}
             onCardShow={handleCardShow} />
         </Route>
 
