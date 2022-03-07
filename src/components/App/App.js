@@ -22,7 +22,7 @@ function App() {
         console.log(err);
       });
 
-      history.push('/image');
+    history.push('/image');
   }, [history]);
 
   function handleCardShow(data) {
@@ -42,10 +42,16 @@ function App() {
     history.push('/image');
   }
 
-  // function handleCardFavoriteDelete(data) {
-  //   setCardsFavorite((cardsFavorite) => cardsFavorite.filter((c) => c.id !== data.id));
-  //   history.push('/favorite');
-  // }
+  function handleCardFavoriteDelete(data) {
+    setCardsFavorite((cardsFavorite) => cardsFavorite.filter((c) => c.id !== data.id));
+    history.push('/favorite');
+  }
+
+  function handleCardAllDelete(data) {
+    setCardsFavorite((cardsFavorite) => cardsFavorite.filter((c) => c.id !== data.id));
+    setCards((cards) => cards.filter((c) => c.id !== data.id));
+    history.push('/favorite');
+  }
 
   return (
     <div className='app'>
@@ -59,14 +65,6 @@ function App() {
             onCardShow={handleCardShow} />
         </Route>
 
-        <Route path='/favorite'>
-          <Main
-            title='Избранное'
-            isFavorite={true}
-            cards={cardsFavorite}
-            onCardShow={handleCardShow} />
-        </Route>        
-
         <Route path='/image/:id'>
           <Image
             card={card}
@@ -78,12 +76,21 @@ function App() {
             imageSize='card_size' />
         </Route>
 
-        <Route path='/favorite/id'>
+        <Route exact path='/favorite'>
+          <Main
+            title='Избранное'
+            isFavorite={true}
+            cards={cardsFavorite}
+            onCardShow={handleCardShow} />
+        </Route>
+
+        <Route path='/favorite/:id'>
           <Image
             card={card}
             title={card.alt}
             isFavoriteButton={true}
-            //onCardDelete={handleCardFavoriteDelete}
+            onCardFavorite={handleCardFavoriteDelete}
+            onCardDelete={handleCardAllDelete}
             navigation='header__image_show'
             imageSize='card_size' />
         </Route>
