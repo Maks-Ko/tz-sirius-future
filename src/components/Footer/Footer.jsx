@@ -7,11 +7,11 @@ import './Footer.css';
 function Footer() {
     return (
         <footer className="footer">
-            <NavLink exact to='/' activeClassName="footer__conatiner_activ" className="footer__conatiner">
+            <NavLink exact to='/image' activeClassName="footer__conatiner_activ" className="footer__conatiner">
                 <img className="footer__image" src={gallery} alt="галерея" />
                 <p className="footer__text">Галерея</p>
             </NavLink>
-            <NavLink to='/favorite' activeClassName="footer__conatiner_activ" className="footer__conatiner">
+            <NavLink exact to='/favorite' activeClassName="footer__conatiner_activ" className="footer__conatiner">
                 <img className="footer__image" src={star} alt="избранное" />
                 <p className="footer__text">Избранное</p>
             </NavLink>

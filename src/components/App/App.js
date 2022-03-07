@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import Main from '../Main/Main';
 import Image from '../Image/Image';
 import api from '../utils/ApiPexels/ApiPexels';
@@ -9,6 +9,8 @@ function App() {
   const [cards, setCards] = useState([]);
   const [cardsFavorite, setCardsFavorite] = useState([]);
   const [card, setCard] = useState('');
+  const [cardFavorite, setCardFavorite] = useState('');
+  const history = useHistory();
 
   useEffect(() => {
     api.getServerData()
@@ -18,47 +20,74 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-      })
-  }, []);
+      });
+
+      history.push('/image');
+  }, [history]);
 
   function handleCardShow(data) {
     setCard(data.card);
   }
 
+  function handleCardFavorite(data) {
+    const isCardFavorite = cardsFavorite.some((c) => c.id === data.id);
+    if (!isCardFavorite) {
+      setCardsFavorite([data, ...cardsFavorite]);
+      history.push('/image');
+    }
+  }
+
+  function handleCardDelete(data) {
+    setCards((cards) => cards.filter((c) => c.id !== data.id));
+    history.push('/image');
+  }
+
+  // function handleCardFavoriteDelete(data) {
+  //   setCardsFavorite((cardsFavorite) => cardsFavorite.filter((c) => c.id !== data.id));
+  //   history.push('/favorite');
+  // }
+
   return (
     <div className='app'>
       <Switch>
-        <Route exact path='/'>
+
+        <Route exact path='/image'>
           <Main
             title='Все изображения'
             isFavorite={false}
             cards={cards}
             onCardShow={handleCardShow} />
         </Route>
-        
+
         <Route path='/favorite'>
           <Main
             title='Избранное'
             isFavorite={true}
-            cards={cardsFavorite} />
-        </Route>
+            cards={cardsFavorite}
+            onCardShow={handleCardShow} />
+        </Route>        
 
-        <Route path='/:id'>
+        <Route path='/image/:id'>
           <Image
             card={card}
             title={card.alt}
             isFavoriteButton={false}
+            onCardFavorite={handleCardFavorite}
+            onCardDelete={handleCardDelete}
             navigation='header__image_show'
             imageSize='card_size' />
         </Route>
 
-        <Route path='/favorite/:id'>
+        <Route path='/favorite/id'>
           <Image
-            title='Назвние фото'
+            card={card}
+            title={card.alt}
             isFavoriteButton={true}
+            //onCardDelete={handleCardFavoriteDelete}
             navigation='header__image_show'
             imageSize='card_size' />
         </Route>
+
       </Switch>
     </div>
   );

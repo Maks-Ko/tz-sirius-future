@@ -14,7 +14,10 @@ function Image(props) {
                 imageSize={props.imageSize}
                 card={props.card} />
             <Action
-                isFavoriteButton={props.isFavoriteButton} />
+                isFavoriteButton={props.isFavoriteButton}
+                onCardFavorite={props.onCardFavorite}
+                card={props.card}
+                onCardDelete={props.onCardDelete} />
         </>
     );
 }

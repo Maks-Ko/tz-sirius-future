@@ -8,11 +8,12 @@ function Card({ card, ...props }) {
 
     function handleCardShow() {
         props.onCardShow({ card });
+        console.log(`${path}/${card.id}`);
     }
 
     return (
         <li className={`card ${props.imageSize}`}>
-            <Link to={`${path}${card.id}`} onClick={handleCardShow}>
+            <Link to={`${path}/${card.id}`} onClick={handleCardShow}>
                 {props.isFavorite && <img className="card__favorite" src={favorite} alt="сердце" />}
                 <img className={`card__image`} src={card.src.medium} alt={card.alt} />
             </Link>
