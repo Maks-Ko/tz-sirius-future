@@ -3,15 +3,18 @@ import { useRouteMatch, Link } from "react-router-dom";
 import favorite from '../../images/favorite-active.svg';
 import './Card.css';
 
-function Card(props) {
+function Card({ card, ...props }) {
     let { path } = useRouteMatch();
-    let  id  = 1; // времменое решение
+
+    function handleCardShow() {
+        props.onCardShow({ card });
+    }
 
     return (
         <li className={`card ${props.imageSize}`}>
-            <Link to={`${path}${id}`}>
+            <Link to={`${path}${card.id}`} onClick={handleCardShow}>
                 {props.isFavorite && <img className="card__favorite" src={favorite} alt="сердце" />}
-                <img className={`card__image`} src="https://proprikol.ru/wp-content/uploads/2020/07/kartinki-zimnij-vecher-44.jpg" alt="Название" />
+                <img className={`card__image`} src={card.src.medium} alt={card.alt} />
             </Link>
         </li>
     );

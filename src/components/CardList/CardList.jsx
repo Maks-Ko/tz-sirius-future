@@ -6,28 +6,14 @@ function CardList(props) {
     return (
         <main className="main">
             <ul className="card-list">
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
-                <Card
-                    isFavorite={props.isFavorite} />
+                {props.cards.map(card => {
+                    return (
+                        <Card 
+                            card={card}
+                            key={card.id}
+                            onCardShow={props.onCardShow} />
+                    )
+                })}
             </ul>
         </main>
     );

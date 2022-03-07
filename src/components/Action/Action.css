@@ -9,7 +9,6 @@
 .action__comntainer {
     margin: 15px;
     border-radius: 20px;
-    /* background-color: #FFFFFF; */
     display: flex;
     flex-direction: column;
 }

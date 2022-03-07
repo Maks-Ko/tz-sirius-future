@@ -9,7 +9,9 @@ function Main(props) {
             <Header
                 title={props.title} />
             <CardList
-                isFavorite={props.isFavorite} />
+                isFavorite={props.isFavorite}
+                cards={props.cards}
+                onCardShow={props.onCardShow} />
             <Footer />
         </>
     );
