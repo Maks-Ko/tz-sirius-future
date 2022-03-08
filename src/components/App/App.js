@@ -9,9 +9,11 @@ function App() {
   const [cards, setCards] = useState([]);
   const [cardsFavorite, setCardsFavorite] = useState([]);
   const [card, setCard] = useState('');
+  const [isPreloader, setIsPreloader] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
+    setIsPreloader(true);
     api.getServerData()
       .then((data) => {
         console.log(data.photos);
@@ -19,6 +21,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsPreloader(false);
       });
 
     history.push('/image');
@@ -60,6 +65,7 @@ function App() {
           <Main
             title='Все изображения'
             isFavorite={false}
+            isPreloader={isPreloader ? "preloader_active" : ""}
             cards={cards}
             cardsFavorite={cardsFavorite}
             onCardShow={handleCardShow} />

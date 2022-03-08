@@ -10,6 +10,7 @@ function Main(props) {
                 title={props.title} />
             <CardList
                 isFavorite={props.isFavorite}
+                isPreloader={props.isPreloader}
                 cards={props.cards}
                 onCardShow={props.onCardShow}
                 cardsFavorite={props.cardsFavorite} />
