@@ -2,7 +2,7 @@
   "name": "tz-sirius-future",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://maks-ko.github.io/stz-sirius-future",
+  "homepage": "https://maks-ko.github.io/tz-sirius-future",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
